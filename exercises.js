@@ -130,28 +130,80 @@ console.log(returnKeysandValues({
 
 // Exercise 13
 // Objective Reverse Words in a Sentence:
-
 // Given an input string, reverse the string word by word. Define a function that does this.
+
+function reverseSentence(sentence){
+  return sentence.split(' ').reverse().join(' ')
+}
+console.log(reverseSentence('Hello how are you'));
 
 // Exercise 14
 // Objective Balanced Parentheses
-
 // Given a string containing just the characters '(', ')', ', ', '[' and ']', determine if the input string is valid (i.e., has balanced parentheses). Write a unction that determines this.
+
+
 
 // Exercise 15
 // Objective Anagram
-
 // Write a function that checks whether two given words are anagrams of each other.
+
+function checkAnagram(wordOne, wordTwo){
+  wordOne = wordOne.split('').sort().join('');
+  wordTwo = wordTwo.split('').sort().join('');
+  if(wordOne == wordTwo){
+    return true;
+  }else{
+    return false;
+  }
+}
+
+console.log(checkAnagram('cinema', 'iceman'))
+console.log(checkAnagram('orange', 'horse'))
 
 // Exercise 16
 // Objective Fizzbuzz
-
 // Write a function that prints the numbers from 1 to 100. But for multiples of three, instead of the number, print "Fizz"; for the multiples of five, print "Buzz". For numbers which are multiples of both three and five, print "FizzBuzz".
+
+function fizzBuzz(){
+  for(let i=1; i<= 100; i++){
+    if(i%3 === 0 && i%5 ===0){
+      console.log('FizzBuzz');
+    }else if(i%3 === 0){
+      console.log('Fizz');
+    }else if(i%5 ===0){
+      console.log('Buzz');
+    }else{
+      console.log(i)
+    }
+  }
+}
+
+fizzBuzz()
 
 // Exercise 17
 // Objective Palindrome
-
 // Write a function that checks if a given word or phrase is a palindrome (reads the same backward as forward, ignoring spaces, punctuation, and capitalization).
+
+function checkPalindrome(word){
+  let wordReversed = word.split('').reverse('').join('')
+  if( word === wordReversed){
+    return true
+  }else{
+    return false
+  }
+}
+
+console.log(checkPalindrome('racecar'));
+console.log(checkPalindrome('orange'));
+
 
 // Exercise 18
 // Use String.prototype.split() and other String methods to reverse the words in a sentence.
+
+function reverseWordsinSentence(sentenece){
+  let words = sentenece.split(' ')
+  let reverse = words.map((word)=> word.split('').reverse().join(''))
+  return reverse.join(' ')
+}
+
+console.log(reverseWordsinSentence('Watch the relevant videos in lesson'))
